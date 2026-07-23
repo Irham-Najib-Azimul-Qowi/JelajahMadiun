@@ -1,0 +1,71 @@
+media:
+  input: assets/images
+  output: /assets/images
+
+content:
+  - name: wisata
+    label: Wisata
+    type: collection
+    path: content/wisata
+    filename: "{fields.title_id}.md"
+    view:
+      fields: [title_id, category, images]
+    fields:
+      - name: title_id
+        label: Judul (Indonesia)
+        type: string
+      - name: title_en
+        label: Title (English)
+        type: string
+      - name: category
+        label: Kategori
+        type: reference
+        options:
+          collection: kategori
+          value: "{name_id}"
+          label: "{name_id}"
+      - name: description_id
+        label: Deskripsi (Indonesia)
+        type: rich-text
+      - name: description_en
+        label: Description (English)
+        type: rich-text
+      - name: images
+        label: Galeri Foto
+        type: image
+        list: true
+        options:
+          categories: [image]
+      - name: maps
+        label: Link Google Maps
+        type: string
+      - name: qr
+        label: QR Code
+        type: image
+        options:
+          categories: [image]
+
+  - name: kategori
+    label: Kategori Wisata
+    type: collection
+    path: content/kategori
+    filename: "{fields.name_id}.md"
+    fields:
+      - name: name_id
+        label: Nama Kategori (Indonesia)
+        type: string
+      - name: name_en
+        label: Category Name (English)
+        type: string
+
+  - name: halaman
+    label: Halaman Statis
+    type: collection
+    path: content/halaman
+    fields:
+      - name: title
+        label: Judul Halaman
+        type: string
+      - name: content
+        label: Konten
+        type: rich-text
