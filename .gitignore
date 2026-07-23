@@ -1,0 +1,8 @@
+.DS_store
+Thumbs.db
+node_modules
+.env
+vscode/settings.json
+dist
+build
+coverage
