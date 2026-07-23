@@ -57,15 +57,3 @@ content:
       - name: name_en
         label: Category Name (English)
         type: string
-
-  - name: halaman
-    label: Halaman Statis
-    type: collection
-    path: content/halaman
-    fields:
-      - name: title
-        label: Judul Halaman
-        type: string
-      - name: content
-        label: Konten
-        type: rich-text
