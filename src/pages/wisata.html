@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daftar Wisata Lengkap - JelajahMadiun</title>
-  <meta name="description" content="Daftar lengkap 34 objek wisata buatan, cagar budaya sejarah, religi, dan kuliner legendaris Kota Madiun dengan fitur pencarian dan filter cepat.">
+  <title>Semua Destinasi Wisata — JelajahMadiun</title>
+  <meta name="description" content="Daftar lengkap 34 objek wisata buatan, cagar budaya sejarah, religi, dan kuliner legendaris Kota Madiun. Cari dan filter destinasi favoritmu.">
+  <link rel="canonical" href="https://jelajahmadiun.pages.dev/src/pages/wisata.html">
 
   <link rel="stylesheet" href="/src/css/variables.css">
   <link rel="stylesheet" href="/src/css/base.css">
@@ -18,36 +19,58 @@
 <body>
   <div data-component="navbar"></div>
 
-  <main class="main-content container section">
-    <div data-component="breadcrumb"></div>
+  <main class="main-content">
 
-    <div class="section-title-wrapper">
-      <h1 class="section-title">Semua Destinasi Wisata Kota Madiun</h1>
-      <p class="section-subtitle">Temukan 34 tempat wisata menarik dan kuliner khas Madiun</p>
-    </div>
-
-    <!-- Search & Category Filters -->
-    <div class="mb-5" style="max-width: 800px; margin-left: auto; margin-right: auto;">
-      <div data-component="search" class="mb-4"></div>
-
-      <div class="d-flex justify-center gap-2 flex-wrap" id="category-pills">
-        <button class="btn btn-primary category-pill" data-category="all">Semua Destinasi</button>
-        <button class="btn btn-outline category-pill" data-category="wisata-buatan">Wisata Buatan</button>
-        <button class="btn btn-outline category-pill" data-category="wisata-sejarah">Wisata Sejarah</button>
-        <button class="btn btn-outline category-pill" data-category="wisata-religi">Wisata Religi</button>
-        <button class="btn btn-outline category-pill" data-category="kuliner">Wisata Kuliner</button>
+    <!-- Page Header -->
+    <div style="background: linear-gradient(135deg, #0F766E 0%, #0D4F4C 100%); padding: 3.5rem 0 4rem; margin-bottom: 0;">
+      <div class="container">
+        <nav class="breadcrumb" style="color: rgba(255,255,255,0.7);">
+          <a href="/" style="color: rgba(255,255,255,0.7);">Beranda</a>
+          <span class="breadcrumb-separator">/</span>
+          <span style="color: #fff;">Semua Destinasi</span>
+        </nav>
+        <h1 style="color: #fff; font-size: 2.5rem; margin-bottom: 0.75rem;">Semua Destinasi Wisata</h1>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.05rem; font-weight: 400;">Temukan 34+ tempat wisata menarik dan kuliner khas Kota Madiun</p>
       </div>
     </div>
 
-    <!-- Results Info Bar -->
-    <div class="d-flex justify-between align-center mb-4" style="border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">
-      <span style="font-weight: 600; color: var(--text-muted);" id="result-count-label">Menampilkan semua destinasi</span>
+    <!-- Search & Filter Bar -->
+    <div style="background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem 0; position: sticky; top: 68px; z-index: 100; box-shadow: var(--shadow-sm);">
+      <div class="container">
+        <div class="d-flex align-center gap-3 flex-wrap">
+          <!-- Inline Search -->
+          <div style="flex: 1; min-width: 240px; max-width: 400px;">
+            <div style="display: flex; align-items: center; background: var(--background); border: 1px solid var(--border); border-radius: var(--radius-full); padding: 0.45rem 1rem 0.45rem 0.75rem; gap: 0.5rem;">
+              <i data-lucide="search" style="width: 18px; height: 18px; color: var(--text-light); flex-shrink: 0;"></i>
+              <input type="text" id="search-input" placeholder="Cari destinasi wisata…" style="border: none; outline: none; background: transparent; flex: 1; font-size: 0.92rem; color: var(--text-main);">
+              <button id="search-btn" style="display: none;" aria-label="Cari"></button>
+            </div>
+          </div>
+
+          <!-- Category Pills -->
+          <div class="d-flex gap-1 flex-wrap" id="category-pills" style="flex: 1;">
+            <button class="btn btn-primary category-pill" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; border-radius: var(--radius-full);" data-category="all">Semua</button>
+            <button class="btn btn-outline category-pill" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; border-radius: var(--radius-full);" data-category="wisata-buatan">Wisata Buatan</button>
+            <button class="btn btn-outline category-pill" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; border-radius: var(--radius-full);" data-category="wisata-sejarah">Sejarah</button>
+            <button class="btn btn-outline category-pill" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; border-radius: var(--radius-full);" data-category="wisata-religi">Religi</button>
+            <button class="btn btn-outline category-pill" style="padding: 0.45rem 1.1rem; font-size: 0.85rem; border-radius: var(--radius-full);" data-category="kuliner">Kuliner</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Destinations Grid -->
-    <div class="grid-3" id="wisata-grid">
-      <!-- Dynamically rendered by JS -->
+    <!-- Results Area -->
+    <div class="container section">
+      <div class="d-flex justify-between align-center mb-4">
+        <span style="font-weight: 600; color: var(--text-muted); font-size: 0.9rem;" id="result-count-label">Memuat destinasi…</span>
+      </div>
+
+      <!-- Destination Grid -->
+      <div class="grid-3" id="wisata-grid">
+        <!-- Dynamically rendered by wisata.js -->
+      </div>
     </div>
+
   </main>
 
   <div data-component="footer"></div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detail Wisata - JelajahMadiun</title>
+  <title>Detail Wisata — JelajahMadiun</title>
 
   <link rel="stylesheet" href="/src/css/variables.css">
   <link rel="stylesheet" href="/src/css/base.css">
@@ -17,65 +17,114 @@
 <body>
   <div data-component="navbar"></div>
 
-  <main class="main-content container section" id="detail-container">
-    <div data-component="breadcrumb"></div>
+  <main class="main-content">
 
-    <!-- Header Section -->
-    <div class="mb-4">
-      <span class="btn btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem; border-radius: var(--radius-full);" id="dest-category-badge">Kategori</span>
-      <h1 class="hero-title mt-2" style="color: var(--text-main); font-size: 2.75rem; text-align: left;" id="dest-title">Nama Destinasi</h1>
-      <p class="text-muted" style="font-size: 1.05rem;" id="dest-address"><i data-lucide="map-pin" style="width:18px; height:18px; display:inline-block; vertical-align:middle; color: var(--primary);"></i> Alamat Destinasi</p>
-    </div>
+    <!-- Hero Image Cover -->
+    <div style="width: 100%; height: 440px; overflow: hidden; background: var(--border); position: relative;">
+      <img
+        id="dest-cover-img"
+        src=""
+        alt="Foto Destinasi"
+        style="width: 100%; height: 100%; object-fit: cover; display: block;"
+        loading="eager"
+      >
+      <!-- Gradient Overlay -->
+      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,20,30,0.75) 0%, transparent 55%); pointer-events: none;"></div>
 
-    <!-- Main Hero Image -->
-    <div class="mb-5" style="border-radius: var(--radius-lg); overflow: hidden; height: 420px; box-shadow: var(--shadow-lg);">
-      <img src="" alt="Cover Image" id="dest-cover-img" style="width: 100%; height: 100%; object-fit: cover;">
-    </div>
-
-    <!-- Content & Sidebar Layout -->
-    <div class="grid-3">
-      <div style="grid-column: span 2;">
-        <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">Deskripsi & Informasi Detail</h2>
-        <div id="dest-description-content" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-main);">
-          <!-- Rendered Markdown HTML -->
-        </div>
-
-        <!-- Facilities -->
-        <h3 class="mt-5 mb-3" style="font-size: 1.4rem;">Fasilitas & Layanan</h3>
-        <div class="d-flex gap-2 flex-wrap" id="dest-facilities-container">
-          <!-- Rendered facilities chips -->
-        </div>
-
-        <!-- Gallery -->
-        <h3 class="mt-5 mb-3" style="font-size: 1.4rem;">Galeri Foto</h3>
-        <div class="grid-3" id="dest-gallery-container">
-          <!-- Rendered gallery images -->
+      <!-- Breadcrumb Overlay -->
+      <div style="position: absolute; top: 1.5rem; left: 0; right: 0;">
+        <div class="container">
+          <nav class="breadcrumb" style="color: rgba(255,255,255,0.8); margin-bottom: 0;">
+            <a href="/" style="color: rgba(255,255,255,0.8);">Beranda</a>
+            <span class="breadcrumb-separator">/</span>
+            <a href="/src/pages/wisata.html" style="color: rgba(255,255,255,0.8);">Wisata</a>
+            <span class="breadcrumb-separator">/</span>
+            <span id="breadcrumb-current" style="color: #fff;">Detail</span>
+          </nav>
         </div>
       </div>
 
-      <!-- Sidebar Metadata Card -->
-      <div class="d-flex flex-column gap-3">
-        <div style="background: var(--surface); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
-          <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Info Kunjungan</h3>
-
-          <div class="mb-3">
-            <div class="text-muted" style="font-size: 0.85rem;"><i data-lucide="clock" style="width:16px; display:inline;"></i> Jam Operasional</div>
-            <div style="font-weight: 700; font-size: 1.05rem;" id="dest-hours">-</div>
-          </div>
-
-          <div class="mb-3">
-            <div class="text-muted" style="font-size: 0.85rem;"><i data-lucide="tag" style="width:16px; display:inline;"></i> Harga Tiket / Estimasi</div>
-            <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary);" id="dest-ticket">-</div>
-          </div>
-
-          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="dest-maps-btn">
-            <i data-lucide="navigation"></i> Petunjuk Arah (Maps)
-          </a>
+      <!-- Title Overlay at Bottom -->
+      <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem;">
+        <div class="container">
+          <span id="dest-category-badge" class="btn btn-primary" style="padding: 0.3rem 0.9rem; font-size: 0.78rem; border-radius: var(--radius-full); margin-bottom: 0.75rem;">Kategori</span>
+          <h1 id="dest-title" style="color: #fff; font-size: 2.5rem; line-height: 1.2; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">Nama Destinasi</h1>
+          <p id="dest-address" style="color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="map-pin" style="width:16px; height:16px; color: var(--secondary);"></i>
+            Alamat Destinasi
+          </p>
         </div>
-
-        <div data-component="qr-section"></div>
       </div>
     </div>
+
+    <!-- Content Area -->
+    <div class="container section">
+      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start;">
+
+        <!-- Main Content Column -->
+        <div>
+          <!-- Description -->
+          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 2rem;">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Deskripsi Lengkap</h2>
+            <div id="dest-description-content" style="font-size: 1rem; line-height: 1.85; color: var(--text-main);">
+              <!-- Rendered Markdown HTML -->
+            </div>
+          </div>
+
+          <!-- Facilities -->
+          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 2rem;" id="facilities-section">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Fasilitas & Layanan</h2>
+            <div class="d-flex gap-2 flex-wrap" id="dest-facilities-container">
+              <!-- Dynamic chips -->
+            </div>
+          </div>
+
+          <!-- Gallery -->
+          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
+            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Galeri Foto</h2>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" id="dest-gallery-container">
+              <!-- Dynamic gallery grid -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Column -->
+        <div style="display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 5rem;">
+
+          <!-- Info Card -->
+          <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Informasi Kunjungan</h3>
+
+            <div class="mb-4">
+              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
+                <i data-lucide="clock" style="width:14px; display:inline; vertical-align:middle;"></i> Jam Operasional
+              </div>
+              <div style="font-weight: 700; font-size: 1rem;" id="dest-hours">—</div>
+            </div>
+
+            <div class="mb-4">
+              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
+                <i data-lucide="ticket" style="width:14px; display:inline; vertical-align:middle;"></i> Harga Tiket / Estimasi
+              </div>
+              <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary);" id="dest-ticket">—</div>
+            </div>
+
+            <a href="#" target="_blank" rel="noopener noreferrer" id="dest-maps-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; border-radius: var(--radius-full);">
+              <i data-lucide="navigation"></i> Petunjuk Arah (Google Maps)
+            </a>
+
+            <a href="/src/pages/wisata.html" class="btn btn-outline" style="width: 100%; margin-top: 0.75rem; border-radius: var(--radius-full);">
+              <i data-lucide="arrow-left"></i> Kembali ke Daftar Wisata
+            </a>
+          </div>
+
+          <!-- QR Section -->
+          <div data-component="qr-section"></div>
+        </div>
+
+      </div>
+    </div>
+
   </main>
 
   <div data-component="footer"></div>
