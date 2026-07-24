@@ -1,22 +1,149 @@
-<header class="navbar">
-  <div class="container navbar-container">
+<header class="navbar" id="site-navbar">
+  <div class="container navbar-inner">
+
+    <!-- Brand -->
     <a href="/" class="navbar-brand" aria-label="JelajahMadiun Beranda">
-      <i data-lucide="map-pin" style="color: var(--primary); width: 26px; height: 26px;"></i>
+      <div class="navbar-brand-icon" aria-hidden="true">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
       <span>Jelajah<strong>Madiun</strong></span>
-      <span class="navbar-brand-badge">Official</span>
     </a>
-    <nav class="navbar-nav" id="main-nav" aria-label="Navigasi Utama">
-      <a href="/" class="nav-link">Beranda</a>
-      <a href="/src/pages/kategori.html" class="nav-link">Kategori</a>
-      <a href="/src/pages/wisata.html" class="nav-link">Wisata</a>
-      <a href="/src/pages/about.html" class="nav-link">Tentang</a>
-      <a href="/src/pages/contact.html" class="nav-link">Kontak</a>
+
+    <!-- Desktop Nav -->
+    <nav class="navbar-nav" id="desktop-nav" aria-label="Navigasi Utama">
+
+      <div class="nav-item">
+        <a href="/" class="nav-link" id="nav-beranda">Beranda</a>
+      </div>
+
+      <!-- Wisata dropdown -->
+      <div class="nav-item">
+        <a href="/src/pages/wisata.html" class="nav-link" id="nav-wisata">
+          Wisata
+          <svg class="nav-link-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="nav-dropdown" role="menu" aria-label="Submenu Wisata">
+          <a href="/src/pages/wisata.html?cat=wisata-buatan" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9h6v12"/></svg>
+            </span>
+            <span>
+              <strong style="display:block; font-size:0.88rem;">Wisata Buatan</strong>
+              <small style="color: var(--text-muted); font-weight:500; font-size:0.78rem;">7 destinasi modern</small>
+            </span>
+          </a>
+          <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+            </span>
+            <span>
+              <strong style="display:block; font-size:0.88rem;">Wisata Sejarah</strong>
+              <small style="color: var(--text-muted); font-weight:500; font-size:0.78rem;">6 cagar budaya</small>
+            </span>
+          </a>
+          <a href="/src/pages/wisata.html?cat=wisata-religi" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 22H6a2 2 0 0 1-2-2V9l8-7 8 7v11a2 2 0 0 1-2 2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            <span>
+              <strong style="display:block; font-size:0.88rem;">Wisata Religi</strong>
+              <small style="color: var(--text-muted); font-weight:500; font-size:0.78rem;">7 tempat ibadah</small>
+            </span>
+          </a>
+          <a href="/src/pages/wisata.html?cat=kuliner" class="nav-dropdown-item" role="menuitem">
+            <span class="nav-dropdown-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </span>
+            <span>
+              <strong style="display:block; font-size:0.88rem;">Kuliner Khas</strong>
+              <small style="color: var(--text-muted); font-weight:500; font-size:0.78rem;">14 kuliner legendaris</small>
+            </span>
+          </a>
+          <div style="border-top: 1px solid var(--border); margin: var(--space-2) 0; padding-top: var(--space-2);">
+            <a href="/src/pages/wisata.html" class="nav-dropdown-item" style="color: var(--primary);" role="menuitem">
+              <span class="nav-dropdown-icon" style="background: var(--primary-xlight);">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--primary)"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+              <strong style="font-size:0.88rem;">Lihat Semua Destinasi →</strong>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="/src/pages/about.html" class="nav-link" id="nav-tentang">Tentang</a>
+      </div>
+
+      <div class="nav-item">
+        <a href="/src/pages/contact.html" class="nav-link" id="nav-kontak">Kontak</a>
+      </div>
+
     </nav>
-    <div class="d-flex align-center gap-2">
-      <div data-component="language-switch"></div>
-      <button class="mobile-toggle" id="mobile-menu-btn" aria-label="Buka Menu Navigasi">
-        <i data-lucide="menu" style="width: 28px; height: 28px;"></i>
-      </button>
-    </div>
+
+    <!-- Mobile Toggle -->
+    <button class="nav-toggle" id="nav-toggle-btn" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="nav-drawer">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+
   </div>
 </header>
+
+<!-- Mobile Drawer -->
+<div class="nav-drawer" id="nav-drawer" role="dialog" aria-label="Menu navigasi mobile" aria-modal="true">
+  <div class="nav-drawer-overlay" id="nav-drawer-overlay"></div>
+  <div class="nav-drawer-panel">
+    <button class="nav-drawer-close" id="nav-drawer-close" aria-label="Tutup menu">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <a href="/" class="nav-drawer-brand">
+      <div class="navbar-brand-icon" style="width:32px; height:32px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      </div>
+      Jelajah<strong>Madiun</strong>
+    </a>
+
+    <div class="nav-drawer-links">
+      <a href="/" class="nav-drawer-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Beranda
+      </a>
+
+      <div class="nav-drawer-section-title">Wisata Kota Madiun</div>
+
+      <a href="/src/pages/wisata.html" class="nav-drawer-link" style="padding-left: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Semua Destinasi
+      </a>
+      <a href="/src/pages/wisata.html?cat=wisata-buatan" class="nav-drawer-link" style="padding-left: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9h6v12"/></svg>
+        Wisata Buatan
+      </a>
+      <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="nav-drawer-link" style="padding-left: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="22" x2="21" y2="22"/><polygon points="12 2 20 7 4 7"/></svg>
+        Wisata Sejarah
+      </a>
+      <a href="/src/pages/wisata.html?cat=wisata-religi" class="nav-drawer-link" style="padding-left: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 22H6a2 2 0 0 1-2-2V9l8-7 8 7v11a2 2 0 0 1-2 2z"/></svg>
+        Wisata Religi
+      </a>
+      <a href="/src/pages/wisata.html?cat=kuliner" class="nav-drawer-link" style="padding-left: 1.25rem;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        Kuliner Khas
+      </a>
+
+      <div class="nav-drawer-section-title">Lainnya</div>
+
+      <a href="/src/pages/about.html" class="nav-drawer-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Tentang
+      </a>
+      <a href="/src/pages/contact.html" class="nav-drawer-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.1a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72c.13.97.37 1.92.72 2.83a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.18 6.18l.97-.97a2 2 0 0 1 2.11-.45c.91.35 1.86.59 2.83.72A2 2 0 0 1 22 16.92z"/></svg>
+        Kontak
+      </a>
+    </div>
+  </div>
+</div>

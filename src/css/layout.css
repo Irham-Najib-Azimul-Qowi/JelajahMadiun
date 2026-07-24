@@ -1,58 +1,93 @@
-/* -------------------------------------------------------------------------- */
-/* Layout & Container Grid System                                             */
-/* -------------------------------------------------------------------------- */
+/* ============================================================
+   Layout — Container, Grid, Section
+   ============================================================ */
 
+/* Container */
 .container {
   width: 100%;
-  max-width: 1240px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
 }
 
+.container--narrow {
+  max-width: 860px;
+  margin-inline: auto;
+  padding-inline: var(--space-6);
+}
+
+/* Sections */
 .section {
-  padding-top: 4.5rem;
-  padding-bottom: 4.5rem;
+  padding-block: var(--space-20);
 }
+.section--sm { padding-block: var(--space-12); }
+.section--lg { padding-block: 6rem; }
 
-.section-title-wrapper {
+/* Section Header */
+.section-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: var(--space-12);
 }
-
+.section-label {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  background: var(--primary-xlight);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--r-full);
+  margin-bottom: var(--space-3);
+}
 .section-title {
-  font-size: 2.25rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: var(--space-3);
 }
-
 .section-subtitle {
-  font-size: 1.15rem;
-  color: var(--text-muted);
-  font-weight: 500;
+  font-size: 1.05rem;
+  color: var(--text-sub);
+  max-width: 580px;
+  margin-inline: auto;
+  line-height: 1.7;
 }
 
-.grid-2 {
+/* Grids */
+.grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  gap: var(--space-6);
 }
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-auto { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
 
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-}
+/* Flex helpers */
+.flex        { display: flex; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between{ display: flex; align-items: center; justify-content: space-between; }
+.flex-wrap   { flex-wrap: wrap; }
+.gap-2       { gap: var(--space-2); }
+.gap-3       { gap: var(--space-3); }
+.gap-4       { gap: var(--space-4); }
+.gap-6       { gap: var(--space-6); }
 
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.75rem;
-}
+/* Spacing helpers */
+.mt-4  { margin-top: var(--space-4); }
+.mt-6  { margin-top: var(--space-6); }
+.mt-8  { margin-top: var(--space-8); }
+.mt-12 { margin-top: var(--space-12); }
+.mb-4  { margin-bottom: var(--space-4); }
+.mb-6  { margin-bottom: var(--space-6); }
+.mb-8  { margin-bottom: var(--space-8); }
 
-.main-content {
-  min-height: calc(100vh - 250px);
-}
+/* Text helpers */
+.text-center  { text-align: center; }
+.text-muted   { color: var(--text-muted); }
+.text-sub     { color: var(--text-sub); }
+.text-primary { color: var(--primary); }
+
+/* Main Content */
+.main-content { min-height: calc(100vh - 320px); }

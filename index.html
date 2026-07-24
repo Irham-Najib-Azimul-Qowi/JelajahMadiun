@@ -4,23 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JelajahMadiun — Portal Resmi Informasi Wisata Kota Madiun</title>
-  <meta name="description" content="Portal resmi informasi tempat wisata, kebudayaan, cagar budaya, dan kelezatan kuliner khas Kota Madiun. Destinasi terlengkap — Jelajah Madiun.">
-  <meta name="keywords" content="jelajah madiun, wisata madiun, kuliner madiun, pahlawan street center, pecel madiun, bluder cokro, wisata religi madiun">
+  <meta name="description" content="Portal resmi informasi wisata, kebudayaan, cagar budaya, dan kuliner khas Kota Madiun. Temukan 34+ destinasi menarik di Jelajah Madiun.">
+  <meta name="keywords" content="jelajah madiun, wisata madiun, kuliner madiun, pahlawan street center, pecel madiun, bluder cokro">
   <link rel="canonical" href="https://jelajahmadiun.pages.dev/">
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="JelajahMadiun — Portal Resmi Wisata Kota Madiun">
-  <meta property="og:description" content="Jelajahi keindahan destinasi buatan, warisan sejarah, religi, dan kelezatan kuliner Kota Madiun.">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=1200&auto=format&fit=crop">
-  <meta property="og:url" content="https://jelajahmadiun.pages.dev/">
-
-  <!-- Twitter -->
+  <meta property="og:description" content="Jelajahi keindahan wisata buatan, sejarah, religi, dan kuliner legendaris Kota Madiun.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&auto=format">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JelajahMadiun — Portal Resmi Wisata Kota Madiun">
-  <meta name="twitter:description" content="Jelajahi keindahan destinasi buatan, warisan sejarah, religi, dan kelezatan kuliner Kota Madiun.">
 
-  <!-- CSS Design System -->
   <link rel="stylesheet" href="/src/css/variables.css">
   <link rel="stylesheet" href="/src/css/base.css">
   <link rel="stylesheet" href="/src/css/layout.css">
@@ -28,158 +21,181 @@
   <link rel="stylesheet" href="/src/css/utilities.css">
   <link rel="stylesheet" href="/src/css/responsive.css">
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 
-  <!-- Schema.org JSON-LD -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "JelajahMadiun",
-    "url": "https://jelajahmadiun.pages.dev/",
-    "description": "Portal Resmi Informasi Pariwisata Kota Madiun",
-    "publisher": {
-      "@type": "GovernmentOrganization",
-      "name": "Pemerintah Kota Madiun",
-      "url": "https://madiun.go.id"
-    }
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"JelajahMadiun","url":"https://jelajahmadiun.pages.dev/","description":"Portal Resmi Informasi Pariwisata Kota Madiun"}
   </script>
 </head>
 <body>
 
-  <!-- Navbar Component -->
   <div data-component="navbar"></div>
 
-  <main class="main-content" id="main-content">
+  <main id="main-content">
 
-    <!-- Hero Banner -->
+    <!-- Hero -->
     <div data-component="hero"></div>
 
-    <!-- Section 1: Category Highlights -->
-    <section class="section container">
-      <div class="section-title-wrapper">
-        <h2 class="section-title">Kategori Wisata Pilihan</h2>
-        <p class="section-subtitle">Temukan ragam tempat wisata sesuai daya tarik favorit Anda di Kota Madiun</p>
-      </div>
-
-      <div class="grid-4">
-        <a href="/src/pages/wisata.html?cat=wisata-buatan" class="category-card" aria-label="Wisata Buatan">
-          <div class="category-card-icon">
-            <i data-lucide="building-2" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 class="category-card-title">Wisata Buatan</h3>
-          <span class="category-card-count">7 Destinasi Modern & Taman</span>
-        </a>
-
-        <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="category-card" aria-label="Wisata Sejarah">
-          <div class="category-card-icon">
-            <i data-lucide="landmark" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 class="category-card-title">Wisata Sejarah</h3>
-          <span class="category-card-count">6 Cagar Budaya & Monumen</span>
-        </a>
-
-        <a href="/src/pages/wisata.html?cat=wisata-religi" class="category-card" aria-label="Wisata Religi">
-          <div class="category-card-icon">
-            <i data-lucide="church" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 class="category-card-title">Wisata Religi</h3>
-          <span class="category-card-count">7 Tempat Ibadah & Ziarah</span>
-        </a>
-
-        <a href="/src/pages/wisata.html?cat=kuliner" class="category-card" aria-label="Wisata Kuliner">
-          <div class="category-card-icon">
-            <i data-lucide="utensils" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 class="category-card-title">Wisata Kuliner</h3>
-          <span class="category-card-count">14 Kuliner Legendaris Khas</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Section 2: Featured Destinations -->
-    <section class="section-featured">
+    <!-- 1. Kategori Wisata -->
+    <section class="section">
       <div class="container">
-        <div class="section-title-wrapper">
-          <h2 class="section-title">Destinasi Wisata Unggulan</h2>
-          <p class="section-subtitle">Pilihan terbaik dan paling ikonik yang wajib dikunjungi saat berada di Madiun</p>
+        <div class="section-header">
+          <span class="section-label">Pilih Kategori</span>
+          <h2 class="section-title">Kategori Wisata Madiun</h2>
+          <p class="section-subtitle">Temukan destinasi sesuai minat Anda — dari taman modern hingga cagar budaya bersejarah</p>
         </div>
 
-        <div class="grid-3" id="featured-destinations-grid">
-          <!-- Dynamically rendered by home.js -->
-        </div>
+        <div class="grid grid-4">
+          <a href="/src/pages/wisata.html?cat=wisata-buatan" class="cat-card">
+            <div class="cat-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 21V9h6v12"/></svg>
+            </div>
+            <span class="cat-card-name">Wisata Buatan</span>
+            <span class="cat-card-count">7 destinasi modern & taman</span>
+          </a>
 
-        <div class="text-center mt-5">
-          <a href="/src/pages/wisata.html" class="btn btn-primary">
-            <i data-lucide="map"></i> Lihat Semua 34 Destinasi
+          <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="cat-card">
+            <div class="cat-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/><line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/><line x1="18" y1="18" x2="18" y2="11"/><polygon points="12 2 20 7 4 7"/></svg>
+            </div>
+            <span class="cat-card-name">Wisata Sejarah</span>
+            <span class="cat-card-count">6 cagar budaya & monumen</span>
+          </a>
+
+          <a href="/src/pages/wisata.html?cat=wisata-religi" class="cat-card">
+            <div class="cat-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 22H6a2 2 0 0 1-2-2V9l8-7 8 7v11a2 2 0 0 1-2 2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <span class="cat-card-name">Wisata Religi</span>
+            <span class="cat-card-count">7 tempat ibadah & ziarah</span>
+          </a>
+
+          <a href="/src/pages/wisata.html?cat=kuliner" class="cat-card">
+            <div class="cat-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <span class="cat-card-name">Kuliner Khas</span>
+            <span class="cat-card-count">14 kuliner legendaris</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Section 3: Why Visit Madiun -->
-    <section class="section container">
-      <div class="section-title-wrapper">
-        <h2 class="section-title">Mengapa Berkunjung ke Kota Madiun?</h2>
-        <p class="section-subtitle">Kota Sejuta Pesona yang Ramah, Bersih, dan Penuh Warisan Budaya</p>
-      </div>
-
-      <div class="grid-3">
-        <div class="feature-card">
-          <div class="feature-card-icon">
-            <i data-lucide="sparkles" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.6rem;">Kota Pedestrian Modern</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
-            Nikmati pedestrian Pahlawan Street Center yang bersih, estetis, dan penuh replika landmark dunia ternama.
-          </p>
+    <!-- 2. Destinasi Unggulan -->
+    <section class="section bg-surface" style="padding-block: var(--space-20);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Pilihan Terbaik</span>
+          <h2 class="section-title">Destinasi Unggulan</h2>
+          <p class="section-subtitle">Tempat wisata paling ikonik dan populer yang wajib dikunjungi saat berada di Madiun</p>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-card-icon">
-            <i data-lucide="utensils-crossed" style="width:28px; height:28px;"></i>
+        <div class="grid grid-3" id="featured-destinations-grid">
+          <!-- Skeleton loaders while fetching -->
+          <div class="dest-card">
+            <div class="dest-card-img skeleton" style="height:200px;"></div>
+            <div class="dest-card-body">
+              <div class="skeleton mb-4" style="height:18px; width:70%;"></div>
+              <div class="skeleton mb-2" style="height:13px; width:90%;"></div>
+              <div class="skeleton" style="height:13px; width:55%;"></div>
+            </div>
           </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.6rem;">Surga Kuliner Legendaris</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
-            Cita rasa Nasi Pecel Madiun asli, Roti Bluder Cokro lembut lumer, Brem Madiun, dan jajanan tradisional tak tertandingi.
-          </p>
+          <div class="dest-card">
+            <div class="dest-card-img skeleton" style="height:200px;"></div>
+            <div class="dest-card-body">
+              <div class="skeleton mb-4" style="height:18px; width:65%;"></div>
+              <div class="skeleton mb-2" style="height:13px; width:85%;"></div>
+              <div class="skeleton" style="height:13px; width:60%;"></div>
+            </div>
+          </div>
+          <div class="dest-card">
+            <div class="dest-card-img skeleton" style="height:200px;"></div>
+            <div class="dest-card-body">
+              <div class="skeleton mb-4" style="height:18px; width:75%;"></div>
+              <div class="skeleton mb-2" style="height:13px; width:80%;"></div>
+              <div class="skeleton" style="height:13px; width:50%;"></div>
+            </div>
+          </div>
         </div>
 
-        <div class="feature-card">
-          <div class="feature-card-icon">
-            <i data-lucide="shield-check" style="width:28px; height:28px;"></i>
-          </div>
-          <h3 style="font-size: 1.1rem; margin-bottom: 0.6rem;">Aman & Ramah Keluarga</h3>
-          <p style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.7;">
-            Fasilitas publik lengkap, taman kota rindang, serta lingkungan aman dan nyaman untuk seluruh anggota keluarga.
-          </p>
+        <div class="text-center mt-12">
+          <a href="/src/pages/wisata.html" class="btn btn-primary btn-lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Lihat Semua 34+ Destinasi
+          </a>
         </div>
       </div>
     </section>
 
-    <!-- Section 4: FAQ -->
-    <section class="section container">
-      <div class="section-title-wrapper">
-        <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
-        <p class="section-subtitle">Informasi praktis seputar kunjungan wisata di Kota Madiun</p>
-      </div>
+    <!-- 3. Mengapa Madiun -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Keunggulan</span>
+          <h2 class="section-title">Mengapa Berkunjung ke Madiun?</h2>
+          <p class="section-subtitle">Kota ramah, bersih, dan penuh pesona yang siap menyambut Anda</p>
+        </div>
 
-      <div data-component="faq"></div>
+        <div class="grid grid-3">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <h3 class="feature-title">Kota Pedestrian Modern</h3>
+            <p class="feature-desc">Pahlawan Street Center (PSC) — taman pedestrian mewah dengan replika landmark dunia dan spot foto instagramable.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/></svg>
+            </div>
+            <h3 class="feature-title">Surga Kuliner Legendaris</h3>
+            <p class="feature-desc">Nasi Pecel Madiun asli, Roti Bluder Cokro lembut yang sudah ada sejak 1933, Brem, dan ragam jajanan tradisional unik.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3 class="feature-title">Aman & Ramah Keluarga</h3>
+            <p class="feature-desc">Lingkungan bersih, fasilitas publik lengkap, dan masyarakat ramah yang membuat kunjungan keluarga terasa nyaman dan menyenangkan.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. FAQ -->
+    <section class="section bg-surface" style="padding-block: var(--space-20);">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Pertanyaan yang Sering Diajukan</h2>
+          <p class="section-subtitle">Jawaban praktis seputar wisata di Kota Madiun</p>
+        </div>
+        <div data-component="faq"></div>
+      </div>
+    </section>
+
+    <!-- 5. CTA Banner -->
+    <section class="section">
+      <div class="container">
+        <div class="cta-banner">
+          <h2 style="font-size:clamp(1.5rem,3vw,2rem); margin-bottom:var(--space-3);">Siap Menjelajahi Madiun?</h2>
+          <p>Temukan destinasi impian, rencanakan perjalanan, dan nikmati keindahan Kota Madiun bersama orang-orang tersayang.</p>
+          <a href="/src/pages/wisata.html" class="btn-hero-primary" style="display:inline-flex; align-items:center; gap:6px; text-decoration:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            Jelajahi Sekarang
+          </a>
+        </div>
+      </div>
     </section>
 
   </main>
 
-  <!-- Footer Component -->
   <div data-component="footer"></div>
-
-  <!-- Back to Top Button -->
   <div data-component="back-to-top"></div>
 
-  <!-- Main JS Module -->
   <script type="module" src="/src/js/main.js"></script>
   <script type="module" src="/src/js/pages/home.js"></script>
-
 </body>
 </html>

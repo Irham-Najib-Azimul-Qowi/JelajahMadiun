@@ -1,55 +1,81 @@
-/* -------------------------------------------------------------------------- */
-/* JelajahMadiun Production Design Tokens & Variables                        */
-/* Color Palette: Nature, Tourism, Professional Government Quality            */
-/* -------------------------------------------------------------------------- */
+/* ============================================================
+   JelajahMadiun — Design System Tokens (v2)
+   Color Palette: Deep Teal + Warm Amber, Nature-inspired
+   ============================================================ */
 
 :root {
-  /* Main Official Theme Colors */
-  --primary: #0F766E;         /* Deep Teal 700 */
-  --primary-hover: #115E59;   /* Deep Teal 800 */
-  --primary-light: #CCFBF1;   /* Light Teal 100 */
-  --secondary: #14B8A6;       /* Emerald Teal 500 */
-  --secondary-hover: #0D9488; /* Emerald Teal 600 */
-  --accent: #F59E0B;          /* Amber Gold 500 */
-  --accent-hover: #D97706;    /* Amber Gold 600 */
+  /* === Brand Colors === */
+  --primary:        #0d9488;   /* Teal 600 */
+  --primary-dark:   #0f766e;   /* Teal 700 */
+  --primary-darker: #115e59;   /* Teal 800 */
+  --primary-light:  #ccfbf1;   /* Teal 100 */
+  --primary-xlight: #f0fdfa;   /* Teal 50  */
 
-  /* Neutral Background & Surface Tokens */
-  --background: #F8FAFC;      /* Slate 50 */
-  --surface: #FFFFFF;         /* Pure White */
-  --surface-hover: #F1F5F9;   /* Slate 100 */
-  --border: #E2E8F0;          /* Slate 200 */
-  --border-focus: #0F766E;
+  --accent:         #f59e0b;   /* Amber 500 */
+  --accent-dark:    #d97706;   /* Amber 600 */
+  --accent-light:   #fef3c7;   /* Amber 100 */
 
-  /* Typography Colors */
-  --text-main: #0F172A;       /* Slate 900 */
-  --text-muted: #64748b;      /* Slate 500 */
-  --text-light: #94A3B8;      /* Slate 400 */
-  --text-inverse: #FFFFFF;
+  /* === Surface / Background === */
+  --bg:             #f8fafc;   /* Slate 50  */
+  --surface:        #ffffff;
+  --surface-2:      #f1f5f9;   /* Slate 100 */
+  --surface-3:      #e2e8f0;   /* Slate 200 */
 
-  /* Status Colors */
-  --status-published: #10B981;
-  --status-draft: #F59E0B;
-  --status-archived: #64748B;
+  /* === Border === */
+  --border:         #e2e8f0;
+  --border-mid:     #cbd5e1;
 
-  /* Typography */
-  --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  /* === Text === */
+  --text:           #0f172a;   /* Slate 900 */
+  --text-sub:       #475569;   /* Slate 600 */
+  --text-muted:     #94a3b8;   /* Slate 400 */
+  --text-on-dark:   #ffffff;
+  --text-on-teal:   #ccfbf1;
 
-  /* Spacing & Border Radius */
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 24px;
-  --radius-full: 9999px;
+  /* === Typography === */
+  --font:           'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-  /* Elevation Shadows & Glassmorphism */
-  --shadow-sm: 0 1px 3px 0 rgba(15, 23, 42, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.05);
-  --shadow-lg: 0 12px 24px -4px rgba(15, 23, 42, 0.12), 0 4px 8px -4px rgba(15, 23, 42, 0.06);
-  --glass-bg: rgba(255, 255, 255, 0.90);
-  --glass-border: rgba(226, 232, 240, 0.8);
-  --glass-blur: blur(16px);
+  /* === Spacing === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
 
-  /* Transitions */
-  --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  /* === Border Radius === */
+  --r-sm:   6px;
+  --r-md:   12px;
+  --r-lg:   20px;
+  --r-xl:   28px;
+  --r-full: 9999px;
+
+  /* === Shadows === */
+  --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.06);
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.08);
+  --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.10);
+  --shadow-lg: 0 8px 32px rgba(15, 23, 42, 0.12);
+  --shadow-xl: 0 16px 48px rgba(15, 23, 42, 0.14);
+  --shadow-teal: 0 8px 24px rgba(13, 148, 136, 0.28);
+
+  /* === Glass === */
+  --glass:        rgba(255, 255, 255, 0.88);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --blur:         blur(18px);
+
+  /* === Transitions === */
+  --t-fast:   0.15s ease;
+  --t-base:   0.25s ease;
+  --t-spring: 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* === Z-index === */
+  --z-sticky:   100;
+  --z-dropdown: 200;
+  --z-overlay:  300;
+  --z-modal:    400;
 }

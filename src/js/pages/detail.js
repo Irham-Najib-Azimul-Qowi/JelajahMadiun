@@ -1,119 +1,112 @@
 /**
- * Detail Wisata Dynamic View Renderer & SEO Controller
+ * Detail Wisata — Dynamic renderer & SEO updater
  */
-
 import { getDestinationBySlug, getItemTitle, getItemDescription, getItemImage } from '../services/content-service.js';
 import { updateMetaSEO } from '../utils/seo.js';
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const params = new URLSearchParams(window.location.search);
-  const slug = params.get('slug');
+const CAT_LABEL = {
+  'wisata-buatan':  'Wisata Buatan',
+  'wisata-sejarah': 'Wisata Sejarah',
+  'wisata-religi':  'Wisata Religi',
+  'kuliner':        'Kuliner Khas'
+};
 
-  if (!slug) {
-    window.location.href = '/src/pages/wisata.html';
-    return;
-  }
+document.addEventListener('DOMContentLoaded', async () => {
+  const slug = new URLSearchParams(window.location.search).get('slug');
+  if (!slug) { window.location.href = '/src/pages/wisata.html'; return; }
 
   try {
     const data = await getDestinationBySlug(slug);
-    if (!data) {
-      console.warn(`[DetailJS] Destination '${slug}' not found.`);
-      return;
-    }
-
-    renderDetailView(data);
-  } catch (err) {
-    console.error(`[DetailJS] Error rendering detail for '${slug}':`, err);
+    if (!data) { console.warn('[detail.js] Not found:', slug); return; }
+    render(data);
+  } catch (e) {
+    console.error('[detail.js]', e);
   }
 });
 
-function renderDetailView(data) {
-  const currentLang = localStorage.getItem('site_lang') || 'id';
+function render(data) {
+  const lang  = localStorage.getItem('site_lang') || 'id';
+  const title = getItemTitle(data, lang);
+  const desc  = getItemDescription(data, lang);
+  const img   = getItemImage(data);
+  const cat   = CAT_LABEL[data.category] || 'Destinasi';
+  const addr  = (typeof data.location === 'object' && data.location?.address) ? data.location.address : 'Kota Madiun, Jawa Timur';
+  const hours = data.opening_hours || '08.00 – 17.00';
+  const ticket= data.ticket || 'Gratis';
+  const mapsUrl = data.google_maps ||
+    `https://maps.google.com/?q=${(typeof data.location === 'object' ? data.location?.latitude : -7.6298) || -7.6298},${(typeof data.location === 'object' ? data.location?.longitude : 111.5239) || 111.5239}`;
 
-  const title = getItemTitle(data, currentLang);
-  const categoryName = getCategoryLabel(data.category);
-  const address = data.location?.address || 'Kota Madiun, Jawa Timur';
-  const coverImage = getItemImage(data);
-  const hours = data.opening_hours || '08:00 - 17:00';
-  const ticket = data.ticket || 'Gratis';
-  const mapsUrl = data.google_maps || `https://maps.google.com/?q=${data.location?.latitude || -7.6298},${data.location?.longitude || 111.5239}`;
-
-  // Update DOM Elements
-  const badgeEl = document.getElementById('dest-category-badge');
-  const titleEl = document.getElementById('dest-title');
-  const addressEl = document.getElementById('dest-address');
+  // Cover
   const coverEl = document.getElementById('dest-cover-img');
-  const descEl = document.getElementById('dest-description-content');
-  const hoursEl = document.getElementById('dest-hours');
-  const ticketEl = document.getElementById('dest-ticket');
-  const mapsBtn = document.getElementById('dest-maps-btn');
-  const breadcrumbCurrent = document.getElementById('breadcrumb-current');
+  if (coverEl) { coverEl.src = img; coverEl.alt = title; }
 
-  if (badgeEl) badgeEl.textContent = categoryName;
+  // Breadcrumb
+  const bc = document.getElementById('breadcrumb-current');
+  if (bc) bc.textContent = title;
+
+  // Badge
+  const badge = document.getElementById('dest-category-badge');
+  if (badge) badge.textContent = cat;
+
+  // Title
+  const titleEl = document.getElementById('dest-title');
   if (titleEl) titleEl.textContent = title;
-  if (breadcrumbCurrent) breadcrumbCurrent.textContent = title;
 
-  if (addressEl) {
-    addressEl.innerHTML = `<i data-lucide="map-pin" style="width:18px; height:18px; display:inline-block; vertical-align:middle; color: var(--primary);"></i> ${address}`;
-  }
+  // Address
+  const addrEl = document.getElementById('dest-address');
+  if (addrEl) addrEl.innerHTML = `
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary);flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+    ${addr}`;
 
-  if (coverEl) {
-    coverEl.src = coverImage;
-    coverEl.alt = title;
-  }
+  // Description
+  const descEl = document.getElementById('dest-description-content');
+  if (descEl) descEl.innerHTML = data.htmlContent || `<p>${desc}</p>`;
 
-  if (descEl) {
-    const descText = getItemDescription(data, currentLang);
-    descEl.innerHTML = data.htmlContent || `<p>${descText}</p>`;
-  }
-
-  if (hoursEl) hoursEl.textContent = hours;
+  // Hours / Ticket
+  const hoursEl  = document.getElementById('dest-hours');
+  const ticketEl = document.getElementById('dest-ticket');
+  if (hoursEl)  hoursEl.textContent  = hours;
   if (ticketEl) ticketEl.textContent = ticket;
+
+  // Maps button
+  const mapsBtn = document.getElementById('dest-maps-btn');
   if (mapsBtn) mapsBtn.href = mapsUrl;
 
-  // Facilities Chips
-  const facilitiesContainer = document.getElementById('dest-facilities-container');
-  if (facilitiesContainer && Array.isArray(data.facilities) && data.facilities.length > 0) {
-    facilitiesContainer.innerHTML = data.facilities.map(fac => `
-      <span class="btn btn-outline" style="font-size: 0.85rem; padding: 0.35rem 0.85rem;">
-        <i data-lucide="check-circle" style="width:14px; height:14px; color: var(--primary);"></i> ${fac}
-      </span>
-    `).join('');
+  // Facilities
+  const facContainer = document.getElementById('dest-facilities-container');
+  if (facContainer) {
+    if (Array.isArray(data.facilities) && data.facilities.length) {
+      facContainer.innerHTML = data.facilities.map(f =>
+        `<span class="facility-chip">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          ${f}
+        </span>`
+      ).join('');
+    } else {
+      document.getElementById('facilities-section').style.display = 'none';
+    }
   }
 
-  // Gallery Grid
-  const galleryContainer = document.getElementById('dest-gallery-container');
-  if (galleryContainer) {
-    const galleryImgs = (Array.isArray(data.gallery) && data.gallery.length > 0) ? data.gallery : [coverImage];
-    galleryContainer.innerHTML = galleryImgs.map(imgUrl => `
-      <div style="border-radius: var(--radius-md); overflow: hidden; height: 200px; box-shadow: var(--shadow-sm);">
-        <img src="${imgUrl.startsWith('/') || imgUrl.startsWith('http') ? imgUrl : coverImage}" alt="${title} Gallery" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='${coverImage}'">
-      </div>
-    `).join('');
+  // Gallery
+  const galleryEl = document.getElementById('dest-gallery-container');
+  if (galleryEl) {
+    const imgs = Array.isArray(data.gallery) && data.gallery.length ? data.gallery : [img];
+    galleryEl.innerHTML = imgs.map(src =>
+      `<div style="border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;">
+        <img src="${src.startsWith('/') || src.startsWith('http') ? src : img}"
+             alt="${title}" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
+      </div>`
+    ).join('');
   }
 
-  // SEO Updates
-  const seoDescription = getItemDescription(data, currentLang);
+  // SEO
   updateMetaSEO({
-    title: title,
-    description: seoDescription,
+    title, description: desc,
     keywords: data.seo?.keywords || ['wisata madiun', title],
-    image: coverImage,
+    image: img,
     canonicalUrl: `https://jelajahmadiun.pages.dev/src/pages/detail-wisata.html?slug=${data.slug}`,
     schemaType: data.category === 'kuliner' ? 'LocalBusiness' : 'TouristAttraction'
   });
 
-  if (window.lucide) {
-    window.lucide.createIcons();
-  }
-}
-
-function getCategoryLabel(cat) {
-  const map = {
-    'wisata-buatan': 'Wisata Buatan',
-    'wisata-sejarah': 'Wisata Sejarah',
-    'wisata-religi': 'Wisata Religi',
-    'kuliner': 'Wisata Kuliner'
-  };
-  return map[cat] || 'Destinasi Wisata';
+  if (window.lucide) window.lucide.createIcons();
 }

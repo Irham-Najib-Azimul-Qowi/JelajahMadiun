@@ -12,119 +12,89 @@
   <link rel="stylesheet" href="/src/css/utilities.css">
   <link rel="stylesheet" href="/src/css/responsive.css">
 
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://unpkg.com/lucide@latest" defer></script>
 </head>
 <body>
   <div data-component="navbar"></div>
 
-  <main class="main-content">
-
-    <!-- Hero Image Cover -->
-    <div style="width: 100%; height: 440px; overflow: hidden; background: var(--border); position: relative;">
-      <img
-        id="dest-cover-img"
-        src=""
-        alt="Foto Destinasi"
-        style="width: 100%; height: 100%; object-fit: cover; display: block;"
-        loading="eager"
-      >
-      <!-- Gradient Overlay -->
-      <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,20,30,0.75) 0%, transparent 55%); pointer-events: none;"></div>
-
-      <!-- Breadcrumb Overlay -->
-      <div style="position: absolute; top: 1.5rem; left: 0; right: 0;">
-        <div class="container">
-          <nav class="breadcrumb" style="color: rgba(255,255,255,0.8); margin-bottom: 0;">
-            <a href="/" style="color: rgba(255,255,255,0.8);">Beranda</a>
-            <span class="breadcrumb-separator">/</span>
-            <a href="/src/pages/wisata.html" style="color: rgba(255,255,255,0.8);">Wisata</a>
-            <span class="breadcrumb-separator">/</span>
-            <span id="breadcrumb-current" style="color: #fff;">Detail</span>
-          </nav>
-        </div>
-      </div>
-
-      <!-- Title Overlay at Bottom -->
-      <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem;">
-        <div class="container">
-          <span id="dest-category-badge" class="btn btn-primary" style="padding: 0.3rem 0.9rem; font-size: 0.78rem; border-radius: var(--radius-full); margin-bottom: 0.75rem;">Kategori</span>
-          <h1 id="dest-title" style="color: #fff; font-size: 2.5rem; line-height: 1.2; text-shadow: 0 2px 12px rgba(0,0,0,0.4);">Nama Destinasi</h1>
-          <p id="dest-address" style="color: rgba(255,255,255,0.85); font-size: 1rem; margin-top: 0.5rem; display: flex; align-items: center; gap: 0.4rem;">
-            <i data-lucide="map-pin" style="width:16px; height:16px; color: var(--secondary);"></i>
-            Alamat Destinasi
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Content Area -->
+  <main>
     <div class="container section">
-      <div style="display: grid; grid-template-columns: 1fr 340px; gap: 3rem; align-items: start;">
 
-        <!-- Main Content Column -->
+      <!-- Breadcrumb -->
+      <nav style="display:flex; align-items:center; gap:var(--space-2); font-size:0.82rem; color:var(--text-muted); margin-bottom:var(--space-6);" aria-label="Breadcrumb">
+        <a href="/" style="color:var(--text-muted);">Beranda</a>
+        <span style="color:var(--border-mid);">/</span>
+        <a href="/src/pages/wisata.html" style="color:var(--text-muted);">Wisata</a>
+        <span style="color:var(--border-mid);">/</span>
+        <span id="breadcrumb-current" style="color:var(--text); font-weight:600;">Detail</span>
+      </nav>
+
+      <!-- Cover Image -->
+      <img id="dest-cover-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&auto=format&fit=crop" alt="Cover" class="detail-cover">
+
+      <!-- 2-col layout -->
+      <div class="detail-layout">
+
+        <!-- Main Content -->
         <div>
+          <!-- Title -->
+          <div style="margin-bottom:var(--space-6);">
+            <span id="dest-category-badge" class="pill active" style="margin-bottom:var(--space-3); display:inline-flex;">Kategori</span>
+            <h1 id="dest-title" style="font-size:clamp(1.5rem,3.5vw,2.25rem); margin-bottom:var(--space-2);">Nama Destinasi</h1>
+            <p id="dest-address" style="color:var(--text-sub); font-size:0.9rem; display:flex; align-items:center; gap:var(--space-2);">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--primary); flex-shrink:0;"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+              Kota Madiun, Jawa Timur
+            </p>
+          </div>
+
           <!-- Description -->
-          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 2rem;">
-            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Deskripsi Lengkap</h2>
-            <div id="dest-description-content" style="font-size: 1rem; line-height: 1.85; color: var(--text-main);">
-              <!-- Rendered Markdown HTML -->
-            </div>
+          <div class="detail-card">
+            <h2 class="detail-card-title">Deskripsi</h2>
+            <div id="dest-description-content" style="font-size:0.95rem; line-height:1.85; color:var(--text-sub);"></div>
           </div>
 
           <!-- Facilities -->
-          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border); margin-bottom: 2rem;" id="facilities-section">
-            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Fasilitas & Layanan</h2>
-            <div class="d-flex gap-2 flex-wrap" id="dest-facilities-container">
-              <!-- Dynamic chips -->
-            </div>
+          <div class="detail-card" id="facilities-section">
+            <h2 class="detail-card-title">Fasilitas & Layanan</h2>
+            <div style="display:flex; gap:var(--space-2); flex-wrap:wrap;" id="dest-facilities-container"></div>
           </div>
 
           <!-- Gallery -->
-          <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-md); border: 1px solid var(--border);">
-            <h2 style="font-size: 1.5rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Galeri Foto</h2>
-            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;" id="dest-gallery-container">
-              <!-- Dynamic gallery grid -->
-            </div>
+          <div class="detail-card">
+            <h2 class="detail-card-title">Galeri Foto</h2>
+            <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-3);" id="dest-gallery-container"></div>
           </div>
         </div>
 
-        <!-- Sidebar Column -->
-        <div style="display: flex; flex-direction: column; gap: 1.25rem; position: sticky; top: 5rem;">
+        <!-- Sidebar -->
+        <div>
+          <div class="detail-card" style="position:sticky; top:80px;">
+            <h2 class="detail-card-title">Informasi Kunjungan</h2>
 
-          <!-- Info Card -->
-          <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
-            <h3 style="font-size: 1.15rem; font-weight: 800; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Informasi Kunjungan</h3>
-
-            <div class="mb-4">
-              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
-                <i data-lucide="clock" style="width:14px; display:inline; vertical-align:middle;"></i> Jam Operasional
-              </div>
-              <div style="font-weight: 700; font-size: 1rem;" id="dest-hours">—</div>
+            <div class="info-row">
+              <span class="info-label">Jam Operasional</span>
+              <span class="info-value" id="dest-hours">—</span>
             </div>
 
-            <div class="mb-4">
-              <div style="font-size: 0.8rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">
-                <i data-lucide="ticket" style="width:14px; display:inline; vertical-align:middle;"></i> Harga Tiket / Estimasi
-              </div>
-              <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary);" id="dest-ticket">—</div>
+            <div class="info-row">
+              <span class="info-label">Harga Tiket</span>
+              <span class="info-value" id="dest-ticket" style="color:var(--primary);">—</span>
             </div>
 
-            <a href="#" target="_blank" rel="noopener noreferrer" id="dest-maps-btn" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; border-radius: var(--radius-full);">
-              <i data-lucide="navigation"></i> Petunjuk Arah (Google Maps)
+            <a id="dest-maps-btn" href="#" target="_blank" rel="noopener noreferrer"
+               class="btn btn-primary" style="width:100%; margin-top:var(--space-4); border-radius:var(--r-full); justify-content:center;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+              Petunjuk Arah
             </a>
-
-            <a href="/src/pages/wisata.html" class="btn btn-outline" style="width: 100%; margin-top: 0.75rem; border-radius: var(--radius-full);">
-              <i data-lucide="arrow-left"></i> Kembali ke Daftar Wisata
+            <a href="/src/pages/wisata.html"
+               class="btn btn-outline" style="width:100%; margin-top:var(--space-2); border-radius:var(--r-full); justify-content:center;">
+              ← Kembali ke Daftar
             </a>
           </div>
-
-          <!-- QR Section -->
-          <div data-component="qr-section"></div>
         </div>
 
       </div>
     </div>
-
   </main>
 
   <div data-component="footer"></div>
