@@ -1,0 +1,10 @@
+site_name: "Website Wisata Kota Madiun"
+default_language: "id"
+supported_languages:
+  - "id"
+  - "en"
+default_image: "default.webp"
+contact_email: "info@madiun.go.id"
+social_media:
+  instagram: "https://instagram.com/pemkotmadiun_"
+  youtube: "https://youtube.com/@pemkotmadiun"
