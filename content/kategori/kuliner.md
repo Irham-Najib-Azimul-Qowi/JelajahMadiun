@@ -1,11 +1,11 @@
 ---
 id: kuliner
 title:
-  id: Kuliner
-  en: Culinary
+  id: Wisata Kuliner
+  en: Culinary Tourism
 icon: utensils.svg
 cover: kuliner.webp
 description:
-  id: Kelezatan kuliner khas Madiun seperti Pecel Madiun, Brem, dan jajan tradisional.
-  en: Madiun's culinary delights such as Pecel Madiun, Brem, and traditional snacks.
+  id: Kelezatan nasi pecel legendaris, bluder khas, dawet, serta jajanan tradisional Kota Madiun.
+  en: Delights of legendary pecel rice, signature bluder bread, dawet, and traditional Madiun snacks.
 ---

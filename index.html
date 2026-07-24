@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JelajahMadiun - Portal Resmi Informasi Wisata Kota Madiun</title>
+  <meta name="description" content="Portal resmi informasi tempat wisata, kebudayaan, cagar budaya, dan kelezatan kuliner khas Kota Madiun. Destinasi terlengkap Jelajah Madiun.">
+  <meta name="keywords" content="jelajah madiun, wisata madiun, kuliner madiun, pahlawan street center, pecel madiun, bluder cokro, wisata religi madiun">
+  <link rel="canonical" href="https://jelajahmadiun.pages.dev/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="JelajahMadiun - Portal Resmi Informasi Wisata Kota Madiun">
+  <meta property="og:description" content="Jelajahi keindahan destinasi buatan, warisan sejarah, religi, dan kelezatan kuliner Kota Madiun.">
+  <meta property="og:image" content="https://jelajahmadiun.pages.dev/assets/images/hero/hero-madiun.webp">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JelajahMadiun - Portal Resmi Wisata Kota Madiun">
+  <meta name="twitter:description" content="Jelajahi keindahan destinasi buatan, warisan sejarah, religi, dan kelezatan kuliner Kota Madiun.">
+
+  <!-- Production Modular CSS Architecture -->
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/utilities.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Injected Navbar Component -->
+  <div data-component="navbar"></div>
+
+  <main class="main-content" id="main-content">
+    <!-- Hero Banner Component -->
+    <div data-component="hero"></div>
+
+    <!-- Section 1: Categories Highlight -->
+    <section class="section container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Kategori Wisata Pilihan</h2>
+        <p class="section-subtitle">Temukan ragam tempat wisata sesuai daya tarik favorit Anda di Kota Madiun</p>
+      </div>
+
+      <div class="grid-4">
+        <a href="/src/pages/wisata.html?cat=wisata-buatan" class="category-card" aria-label="Kategori Wisata Buatan">
+          <div class="category-card-icon">
+            <i data-lucide="building-2" style="width:28px; height:28px;"></i>
+          </div>
+          <h3 class="category-card-title">Wisata Buatan</h3>
+          <span class="category-card-count">7 Destinasi Modern</span>
+        </a>
+
+        <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="category-card" aria-label="Kategori Wisata Sejarah">
+          <div class="category-card-icon">
+            <i data-lucide="landmark" style="width:28px; height:28px;"></i>
+          </div>
+          <h3 class="category-card-title">Wisata Sejarah</h3>
+          <span class="category-card-count">6 Cagar Budaya</span>
+        </a>
+
+        <a href="/src/pages/wisata.html?cat=wisata-religi" class="category-card" aria-label="Kategori Wisata Religi">
+          <div class="category-card-icon">
+            <i data-lucide="church" style="width:28px; height:28px;"></i>
+          </div>
+          <h3 class="category-card-title">Wisata Religi</h3>
+          <span class="category-card-count">7 Tempat Ibadah Kuno</span>
+        </a>
+
+        <a href="/src/pages/wisata.html?cat=kuliner" class="category-card" aria-label="Kategori Wisata Kuliner">
+          <div class="category-card-icon">
+            <i data-lucide="utensils" style="width:28px; height:28px;"></i>
+          </div>
+          <h3 class="category-card-title">Wisata Kuliner</h3>
+          <span class="category-card-count">14 Kuliner Legendaris</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 2: Featured Destinations -->
+    <section class="section container" style="background: var(--surface); border-radius: var(--radius-lg); border: 1px solid var(--border);">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Destinasi Wisata Unggulan</h2>
+        <p class="section-subtitle">Opsi terbaik dan ikonik yang wajib dikunjungi saat berada di Madiun</p>
+      </div>
+
+      <div class="grid-3" id="featured-destinations-grid">
+        <!-- Dynamically rendered by JS -->
+        <div data-component="destination-card"></div>
+        <div data-component="destination-card"></div>
+        <div data-component="destination-card"></div>
+      </div>
+    </section>
+
+    <!-- Section 3: Why Visit Madiun -->
+    <section class="section container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Mengapa Berkunjung ke Kota Madiun?</h2>
+        <p class="section-subtitle">Kota Sejuta Pesona yang Ramah, Bersih, dan Penuh Warisan Budaya</p>
+      </div>
+
+      <div class="grid-3">
+        <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); text-align: center;">
+          <i data-lucide="sparkles" style="width:40px; height:40px; color: var(--primary); margin-bottom:1rem;"></i>
+          <h3 style="margin-bottom:0.5rem;">Kota Pedestrian Modern</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Menikmati keindahan pedestrian Pahlawan Street Center yang bersih dan estetis ala kota internasional.</p>
+        </div>
+
+        <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); text-align: center;">
+          <i data-lucide="utensils-crossed" style="width:40px; height:40px; color: var(--primary); margin-bottom:1rem;"></i>
+          <h3 style="margin-bottom:0.5rem;">Surga Kuliner Legendaris</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Cita rasa Nasi Pecel Madiun asli, Roti Bluder lembut lumer, Brem manis, dan jajanan tradisional tak tertandingi.</p>
+        </div>
+
+        <div style="background: var(--surface); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--border); text-align: center;">
+          <i data-lucide="shield-check" style="width:40px; height:40px; color: var(--primary); margin-bottom:1rem;"></i>
+          <h3 style="margin-bottom:0.5rem;">Aman & Ramah Keluarga</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Fasilitas publik, taman kota rindang, serta lingkungan yang aman dan nyaman bagi seluruh anggota keluarga.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: FAQ Section -->
+    <section class="section container">
+      <div class="section-title-wrapper">
+        <h2 class="section-title">Pertanyaan Sering Diajukan (FAQ)</h2>
+        <p class="section-subtitle">Informasi praktis seputar kunjungan wisata di Kota Madiun</p>
+      </div>
+
+      <div data-component="faq"></div>
+    </section>
+  </main>
+
+  <!-- Injected Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Injected Back to Top Button -->
+  <div data-component="back-to-top"></div>
+
+  <!-- Main JavaScript Module -->
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

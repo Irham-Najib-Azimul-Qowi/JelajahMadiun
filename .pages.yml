@@ -4,56 +4,189 @@ media:
 
 content:
   - name: wisata
-    label: Wisata
+    label: Destinasi Wisata
     type: collection
     path: content/wisata
-    filename: "{fields.title_id}.md"
+    filename: "{fields.slug}.md"
     view:
-      fields: [title_id, category, images]
+      fields: [title.id, category, status, featured]
     fields:
-      - name: title_id
-        label: Judul (Indonesia)
+      - name: id
+        label: ID Destinasi
         type: string
-      - name: title_en
-        label: Title (English)
+      - name: slug
+        label: Slug URL (kebab-case)
         type: string
+      - name: title
+        label: Judul Wisata
+        type: object
+        fields:
+          - name: id
+            label: Judul (Indonesia)
+            type: string
+          - name: en
+            label: Title (English)
+            type: string
       - name: category
         label: Kategori
-        type: reference
+        type: select
         options:
-          collection: kategori
-          value: "{name_id}"
-          label: "{name_id}"
-      - name: description_id
-        label: Deskripsi (Indonesia)
-        type: rich-text
-      - name: description_en
-        label: Description (English)
-        type: rich-text
-      - name: images
+          values:
+            - wisata-buatan
+            - wisata-sejarah
+            - wisata-religi
+            - kuliner
+      - name: featured
+        label: Tampilkan di Beranda (Featured)
+        type: boolean
+        default: false
+      - name: status
+        label: Status Publikasi
+        type: select
+        options:
+          values:
+            - published
+            - draft
+            - archived
+        default: published
+      - name: hero_image
+        label: Foto Sampul (Hero Image)
+        type: image
+        options:
+          categories: [image]
+      - name: gallery
         label: Galeri Foto
         type: image
         list: true
         options:
           categories: [image]
-      - name: maps
-        label: Link Google Maps
+      - name: location
+        label: Lokasi & Koordinat
+        type: object
+        fields:
+          - name: latitude
+            label: Latitude
+            type: number
+          - name: longitude
+            label: Longitude
+            type: number
+          - name: address
+            label: Alamat Lengkap
+            type: string
+      - name: google_maps
+        label: URL Google Maps
         type: string
-      - name: qr
-        label: QR Code
-        type: image
-        options:
-          categories: [image]
+      - name: opening_hours
+        label: Jam Operasional
+        type: string
+      - name: ticket
+        label: Harga Tiket Masuk
+        type: string
+      - name: facilities
+        label: Fasilitas Tempat
+        type: string
+        list: true
+      - name: seo
+        label: SEO Metadata
+        type: object
+        fields:
+          - name: title
+            label: SEO Title
+            type: object
+            fields:
+              - name: id
+                label: SEO Title (ID)
+                type: string
+              - name: en
+                label: SEO Title (EN)
+                type: string
+          - name: description
+            label: SEO Description
+            type: object
+            fields:
+              - name: id
+                label: SEO Description (ID)
+                type: string
+              - name: en
+                label: SEO Description (EN)
+                type: string
 
   - name: kategori
     label: Kategori Wisata
     type: collection
     path: content/kategori
-    filename: "{fields.name_id}.md"
+    filename: "{fields.id}.md"
     fields:
-      - name: name_id
-        label: Nama Kategori (Indonesia)
+      - name: id
+        label: ID Kategori (kebab-case)
         type: string
-      - name: name_en
-        label: Category Name (English)
+      - name: title
+        label: Nama Kategori
+        type: object
+        fields:
+          - name: id
+            label: Nama (Indonesia)
+            type: string
+          - name: en
+            label: Name (English)
+            type: string
+      - name: icon
+        label: Icon File
+        type: string
+      - name: cover
+        label: Cover Image
+        type: string
+      - name: description
+        label: Deskripsi Kategori
+        type: object
+        fields:
+          - name: id
+            label: Deskripsi (Indonesia)
+            type: string
+          - name: en
+            label: Description (English)
+            type: string
+
+  - name: halaman
+    label: Halaman Statis
+    type: collection
+    path: content/halaman
+    filename: "{fields.slug}.md"
+    fields:
+      - name: slug
+        label: Slug Halaman
+        type: string
+      - name: title
+        label: Judul Halaman
+        type: object
+        fields:
+          - name: id
+            label: Judul (Indonesia)
+            type: string
+          - name: en
+            label: Title (English)
+            type: string
+
+  - name: settings
+    label: Pengaturan Website
+    type: file
+    path: content/settings/website.yml
+    fields:
+      - name: site_name
+        label: Nama Website
+        type: string
+      - name: site_tagline
+        label: Tagline
+        type: string
+      - name: default_language
+        label: Bahasa Utama
+        type: string
+      - name: contact_email
+        label: Email Kontak
+        type: string
+      - name: contact_phone
+        label: Telepon Kontak
+        type: string
+      - name: address
+        label: Alamat Kantor
         type: string

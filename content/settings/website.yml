@@ -1,10 +1,15 @@
-site_name: "Website Wisata Kota Madiun"
+site_name: "JelajahMadiun"
+site_tagline: "Portal Resmi Informasi Wisata Kota Madiun"
 default_language: "id"
 supported_languages:
   - "id"
   - "en"
-default_image: "default.webp"
+default_image: "/assets/images/hero/hero-madiun.webp"
 contact_email: "info@madiun.go.id"
+contact_phone: "+62 351 462711"
+address: "Jl. Pahlawan No. 19, Kartoharjo, Kota Madiun, Jawa Timur"
 social_media:
   instagram: "https://instagram.com/pemkotmadiun_"
   youtube: "https://youtube.com/@pemkotmadiun"
+  facebook: "https://facebook.com/pemkotmadiun"
+google_search_console_code: "GSC-VERIFICATION-PLACEHOLDER"

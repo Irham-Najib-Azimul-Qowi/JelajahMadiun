@@ -6,6 +6,6 @@ title:
 icon: building.svg
 cover: buatan.webp
 description:
-  id: Destinasi wisata modern, wahana rekreasi, dan landmark perkotaan Madiun.
-  en: Modern tourist destinations, recreational rides, and urban landmarks of Madiun.
+  id: Landmark modern, taman perkotaan, dan wahana rekreasi ramah keluarga di Kota Madiun.
+  en: Modern landmarks, urban parks, and family-friendly recreational spaces in Madiun City.
 ---

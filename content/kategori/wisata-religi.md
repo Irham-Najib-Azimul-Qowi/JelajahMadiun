@@ -6,6 +6,6 @@ title:
 icon: mosque.svg
 cover: religi.webp
 description:
-  id: Tempat ibadah bersejarah dan destinasi keagamaan di Kota Madiun.
-  en: Historic places of worship and spiritual destinations in Madiun City.
+  id: Masjid kuno bersejarah, gereja kolonial, klenteng bersejarah, dan ziarah makam tokoh Madiun.
+  en: Historic mosques, colonial churches, historic temples, and tomb pilgrimages in Madiun.
 ---

@@ -6,6 +6,6 @@ title:
 icon: monument.svg
 cover: sejarah.webp
 description:
-  id: Situs bersejarah, monumen peninggalan, dan cerita masa lalu Kota Madiun.
-  en: Historical sites, heritage monuments, and stories from Madiun's past.
+  id: Bangunan cagar budaya, peninggalan kolonial, dan warisan nilai sejarah di Kota Madiun.
+  en: Cultural heritage buildings, colonial relics, and historical heritage of Madiun City.
 ---
