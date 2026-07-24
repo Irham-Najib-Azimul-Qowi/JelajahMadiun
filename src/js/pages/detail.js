@@ -2,7 +2,7 @@
  * Detail Wisata Dynamic View Renderer & SEO Controller
  */
 
-import { getDestinationBySlug } from '../services/content-service.js';
+import { getDestinationBySlug, getItemTitle, getItemDescription, getItemImage } from '../services/content-service.js';
 import { updateMetaSEO } from '../utils/seo.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 function renderDetailView(data) {
   const currentLang = localStorage.getItem('site_lang') || 'id';
 
-  const title = (currentLang === 'en' && data.title?.en) ? data.title.en : (data.title?.id || data.slug);
+  const title = getItemTitle(data, currentLang);
   const categoryName = getCategoryLabel(data.category);
   const address = data.location?.address || 'Kota Madiun, Jawa Timur';
-  const coverImage = data.hero_image || getUnsplashFallback(data.category);
+  const coverImage = getItemImage(data);
   const hours = data.opening_hours || '08:00 - 17:00';
   const ticket = data.ticket || 'Gratis';
   const mapsUrl = data.google_maps || `https://maps.google.com/?q=${data.location?.latitude || -7.6298},${data.location?.longitude || 111.5239}`;
@@ -60,13 +60,11 @@ function renderDetailView(data) {
   if (coverEl) {
     coverEl.src = coverImage;
     coverEl.alt = title;
-    coverEl.onerror = () => {
-      coverEl.src = getUnsplashFallback(data.category);
-    };
   }
 
   if (descEl) {
-    descEl.innerHTML = data.htmlContent || `<p>${data.seo?.description?.id || ''}</p>`;
+    const descText = getItemDescription(data, currentLang);
+    descEl.innerHTML = data.htmlContent || `<p>${descText}</p>`;
   }
 
   if (hoursEl) hoursEl.textContent = hours;
@@ -85,16 +83,17 @@ function renderDetailView(data) {
 
   // Gallery Grid
   const galleryContainer = document.getElementById('dest-gallery-container');
-  if (galleryContainer && Array.isArray(data.gallery) && data.gallery.length > 0) {
-    galleryContainer.innerHTML = data.gallery.map(imgUrl => `
-      <div style="border-radius: var(--radius-md); overflow: hidden; height: 180px; box-shadow: var(--shadow-sm);">
-        <img src="${imgUrl}" alt="${title} Gallery" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop'">
+  if (galleryContainer) {
+    const galleryImgs = (Array.isArray(data.gallery) && data.gallery.length > 0) ? data.gallery : [coverImage];
+    galleryContainer.innerHTML = galleryImgs.map(imgUrl => `
+      <div style="border-radius: var(--radius-md); overflow: hidden; height: 200px; box-shadow: var(--shadow-sm);">
+        <img src="${imgUrl.startsWith('/') || imgUrl.startsWith('http') ? imgUrl : coverImage}" alt="${title} Gallery" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='${coverImage}'">
       </div>
     `).join('');
   }
 
   // SEO Updates
-  const seoDescription = data.seo?.description?.id || data.description?.id || '';
+  const seoDescription = getItemDescription(data, currentLang);
   updateMetaSEO({
     title: title,
     description: seoDescription,
@@ -117,14 +116,4 @@ function getCategoryLabel(cat) {
     'kuliner': 'Wisata Kuliner'
   };
   return map[cat] || 'Destinasi Wisata';
-}
-
-function getUnsplashFallback(cat) {
-  const map = {
-    'wisata-buatan': 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=800&auto=format&fit=crop',
-    'wisata-sejarah': 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&auto=format&fit=crop',
-    'wisata-religi': 'https://images.unsplash.com/photo-1548625361-1858e9b6a226?w=800&auto=format&fit=crop',
-    'kuliner': 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&auto=format&fit=crop'
-  };
-  return map[cat] || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=800&auto=format&fit=crop';
 }

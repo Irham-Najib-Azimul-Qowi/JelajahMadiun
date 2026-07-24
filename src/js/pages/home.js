@@ -23,17 +23,16 @@ function renderDestinationCards(items, container) {
   if (!items || items.length === 0) return;
 
   container.innerHTML = items.map(item => {
-    const title = item.title?.id || item.title?.en || item.slug;
-    const desc = item.seo?.description?.id || item.seo?.description?.en || item.description?.id || '';
+    const title = item.resolvedTitle || item.slug;
+    const desc = item.resolvedDescription || '';
     const categoryName = getCategoryLabel(item.category);
-    const image = item.hero_image || getUnsplashFallback(item.category);
+    const image = item.resolvedImage;
     const hours = item.opening_hours || '08:00 - 17:00';
-    const ticket = item.ticket || 'Gratis';
 
     return `
       <article class="destination-card">
         <div class="destination-card-image">
-          <img src="${image}" alt="${title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop'">
+          <img src="${image}" alt="${title}" loading="lazy">
           <span class="destination-card-badge">${categoryName}</span>
         </div>
         <div class="destination-card-content">
@@ -61,14 +60,4 @@ function getCategoryLabel(cat) {
     'kuliner': 'Wisata Kuliner'
   };
   return map[cat] || 'Destinasi Wisata';
-}
-
-function getUnsplashFallback(cat) {
-  const map = {
-    'wisata-buatan': 'https://images.unsplash.com/photo-1519999482648-25049ddd37b1?w=600&auto=format&fit=crop',
-    'wisata-sejarah': 'https://images.unsplash.com/photo-1564507592333-c60657eea523?w=600&auto=format&fit=crop',
-    'wisata-religi': 'https://images.unsplash.com/photo-1548625361-1858e9b6a226?w=600&auto=format&fit=crop',
-    'kuliner': 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&auto=format&fit=crop'
-  };
-  return map[cat] || 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=600&auto=format&fit=crop';
 }
