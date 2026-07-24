@@ -5,14 +5,14 @@
 
 import { parseMarkdownWithFrontMatter } from '../utils/markdown-parser.js';
 
-// Pre-registered list of all destination markdown files for runtime discovery
+// Manifest listing all destination markdown files
 const DESTINATION_MANIFEST = [
   // Wisata Buatan
   '/content/wisata/wisata-buatan/pahlawan-street-center.md',
   '/content/wisata/wisata-buatan/pahlawan-religi-centre.md',
   '/content/wisata/wisata-buatan/taman-lalu-lintas-bantaran.md',
   '/content/wisata/wisata-buatan/taman-hijau-demangan.md',
-  '/content/wisata/wisata-buatan/ngrowo-bening-edupark.md',
+  '/content/wisata/wisata-buatan/ngrowo-bening.md',
   '/content/wisata/wisata-buatan/taman-bantaran-kali-madiun.md',
   '/content/wisata/wisata-buatan/taman-hutan-kita.md',
 
@@ -61,9 +61,16 @@ export async function getAllDestinations() {
     try {
       const res = await fetch(path);
       if (res.ok) {
+        const contentType = res.headers.get('content-type') || '';
+        // Skip if returned SPA fallback HTML
+        if (contentType.includes('text/html')) {
+          console.warn(`[ContentService] File ${path} returned HTML fallback, skipping.`);
+          continue;
+        }
+
         const text = await res.text();
         const parsed = parseMarkdownWithFrontMatter(text);
-        if (parsed.metadata && parsed.metadata.slug) {
+        if (parsed.metadata && (parsed.metadata.slug || parsed.metadata.id)) {
           results.push({
             filePath: path,
             ...parsed.metadata,
@@ -106,9 +113,9 @@ export async function searchDestinations(query, category = 'all') {
 
   const q = query.toLowerCase().trim();
   return filtered.filter(item => {
-    const titleId = (item.title?.id || '').toLowerCase();
-    const titleEn = (item.title?.en || '').toLowerCase();
-    const descId = (item.seo?.description?.id || '').toLowerCase();
+    const titleId = (typeof item.title === 'object' ? item.title?.id : item.title || '').toLowerCase();
+    const titleEn = (typeof item.title === 'object' ? item.title?.en : '').toLowerCase();
+    const descId = (typeof item.seo?.description === 'object' ? item.seo?.description?.id : item.seo?.description || '').toLowerCase();
 
     return titleId.includes(q) || titleEn.includes(q) || descId.includes(q);
   });
