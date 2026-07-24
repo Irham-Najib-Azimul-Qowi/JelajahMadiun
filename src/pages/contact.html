@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hubungi Kami - JelajahMadiun</title>
+  <meta name="description" content="Kontak resmi pengelola JelajahMadiun - Dinas Kebudayaan, Pemuda, dan Olahraga Kota Madiun.">
+
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/utilities.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div data-component="navbar"></div>
+
+  <main class="main-content container section">
+    <div data-component="breadcrumb"></div>
+
+    <div class="section-title-wrapper">
+      <h1 class="section-title">Hubungi Kami</h1>
+      <p class="section-subtitle">Dinas Kebudayaan, Pemuda, dan Olahraga Kota Madiun</p>
+    </div>
+
+    <div class="grid-2" style="max-width: 950px; margin: 0 auto;">
+      <!-- Contact Info Card -->
+      <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Informasi Kontak</h2>
+
+        <div class="mb-4 d-flex align-center gap-2">
+          <i data-lucide="map-pin" style="width:24px; height:24px; color: var(--primary);"></i>
+          <div>
+            <strong>Alamat Kantor</strong>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">Jl. Pahlawan No. 19, Kartoharjo, Kota Madiun, Jawa Timur</p>
+          </div>
+        </div>
+
+        <div class="mb-4 d-flex align-center gap-2">
+          <i data-lucide="mail" style="width:24px; height:24px; color: var(--primary);"></i>
+          <div>
+            <strong>Email Resmi</strong>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">info@madiun.go.id</p>
+          </div>
+        </div>
+
+        <div class="mb-4 d-flex align-center gap-2">
+          <i data-lucide="phone" style="width:24px; height:24px; color: var(--primary);"></i>
+          <div>
+            <strong>Telepon</strong>
+            <p style="color: var(--text-muted); font-size: 0.95rem;">+62 351 462711</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form Card -->
+      <div style="background: var(--surface); padding: 2.5rem; border-radius: var(--radius-lg); border: 1px solid var(--border);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Kirim Pesan / Masukan</h2>
+        <form id="contact-form">
+          <div class="mb-3">
+            <label style="display:block; font-weight:600; margin-bottom:0.4rem;">Nama Lengkap</label>
+            <input type="text" class="search-input" style="border: 1px solid var(--border); width: 100%; border-radius: var(--radius-sm);" placeholder="Nama Anda" required>
+          </div>
+
+          <div class="mb-3">
+            <label style="display:block; font-weight:600; margin-bottom:0.4rem;">Alamat Email</label>
+            <input type="email" class="search-input" style="border: 1px solid var(--border); width: 100%; border-radius: var(--radius-sm);" placeholder="email@contoh.com" required>
+          </div>
+
+          <div class="mb-4">
+            <label style="display:block; font-weight:600; margin-bottom:0.4rem;">Pesan / Masukan</label>
+            <textarea class="search-input" style="border: 1px solid var(--border); width: 100%; border-radius: var(--radius-sm); height: 120px;" placeholder="Tuliskan masukan atau pertanyaan..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%;">
+            <i data-lucide="send"></i> Kirim Pesan
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+  <div data-component="back-to-top"></div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

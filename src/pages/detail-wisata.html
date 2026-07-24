@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Wisata - JelajahMadiun</title>
+
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/utilities.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div data-component="navbar"></div>
+
+  <main class="main-content container section" id="detail-container">
+    <div data-component="breadcrumb"></div>
+
+    <!-- Header Section -->
+    <div class="mb-4">
+      <span class="btn btn-primary" style="padding: 0.35rem 0.85rem; font-size: 0.8rem; border-radius: var(--radius-full);" id="dest-category-badge">Kategori</span>
+      <h1 class="hero-title mt-2" style="color: var(--text-main); font-size: 2.75rem; text-align: left;" id="dest-title">Nama Destinasi</h1>
+      <p class="text-muted" style="font-size: 1.05rem;" id="dest-address"><i data-lucide="map-pin" style="width:18px; height:18px; display:inline-block; vertical-align:middle; color: var(--primary);"></i> Alamat Destinasi</p>
+    </div>
+
+    <!-- Main Hero Image -->
+    <div class="mb-5" style="border-radius: var(--radius-lg); overflow: hidden; height: 420px; box-shadow: var(--shadow-lg);">
+      <img src="" alt="Cover Image" id="dest-cover-img" style="width: 100%; height: 100%; object-fit: cover;">
+    </div>
+
+    <!-- Content & Sidebar Layout -->
+    <div class="grid-3">
+      <div style="grid-column: span 2;">
+        <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">Deskripsi & Informasi Detail</h2>
+        <div id="dest-description-content" style="font-size: 1.05rem; line-height: 1.8; color: var(--text-main);">
+          <!-- Rendered Markdown HTML -->
+        </div>
+
+        <!-- Facilities -->
+        <h3 class="mt-5 mb-3" style="font-size: 1.4rem;">Fasilitas & Layanan</h3>
+        <div class="d-flex gap-2 flex-wrap" id="dest-facilities-container">
+          <!-- Rendered facilities chips -->
+        </div>
+
+        <!-- Gallery -->
+        <h3 class="mt-5 mb-3" style="font-size: 1.4rem;">Galeri Foto</h3>
+        <div class="grid-3" id="dest-gallery-container">
+          <!-- Rendered gallery images -->
+        </div>
+      </div>
+
+      <!-- Sidebar Metadata Card -->
+      <div class="d-flex flex-column gap-3">
+        <div style="background: var(--surface); padding: 1.75rem; border-radius: var(--radius-md); border: 1px solid var(--border); box-shadow: var(--shadow-sm);">
+          <h3 style="font-size: 1.2rem; margin-bottom: 1.25rem; border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">Info Kunjungan</h3>
+
+          <div class="mb-3">
+            <div class="text-muted" style="font-size: 0.85rem;"><i data-lucide="clock" style="width:16px; display:inline;"></i> Jam Operasional</div>
+            <div style="font-weight: 700; font-size: 1.05rem;" id="dest-hours">-</div>
+          </div>
+
+          <div class="mb-3">
+            <div class="text-muted" style="font-size: 0.85rem;"><i data-lucide="tag" style="width:16px; display:inline;"></i> Harga Tiket / Estimasi</div>
+            <div style="font-weight: 700; font-size: 1.05rem; color: var(--primary);" id="dest-ticket">-</div>
+          </div>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%; margin-top: 1rem;" id="dest-maps-btn">
+            <i data-lucide="navigation"></i> Petunjuk Arah (Maps)
+          </a>
+        </div>
+
+        <div data-component="qr-section"></div>
+      </div>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+  <div data-component="back-to-top"></div>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/pages/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jelajahmadiun.pages.dev/sitemap.xml

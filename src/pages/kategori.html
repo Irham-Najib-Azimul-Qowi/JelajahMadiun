@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kategori Wisata - JelajahMadiun</title>
+  <meta name="description" content="Kategori lengkap destinasi wisata buatan, cagar budaya sejarah, tempat ibadah religi, dan kuliner legendaris Kota Madiun.">
+
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/utilities.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div data-component="navbar"></div>
+
+  <main class="main-content container section">
+    <div data-component="breadcrumb"></div>
+
+    <div class="section-title-wrapper">
+      <h1 class="section-title">Kategori Wisata Kota Madiun</h1>
+      <p class="section-subtitle">Pilih kategori destinasi favorit Anda untuk menjelajahi keindahan Kota Madiun</p>
+    </div>
+
+    <div class="grid-4">
+      <a href="/src/pages/wisata.html?cat=wisata-buatan" class="category-card" aria-label="Kategori Wisata Buatan">
+        <div class="category-card-icon">
+          <i data-lucide="building-2" style="width:32px; height:32px;"></i>
+        </div>
+        <h3 class="category-card-title">Wisata Buatan</h3>
+        <p class="category-card-count mt-1">7 Destinasi Modern & Taman Kota</p>
+      </a>
+
+      <a href="/src/pages/wisata.html?cat=wisata-sejarah" class="category-card" aria-label="Kategori Wisata Sejarah">
+        <div class="category-card-icon">
+          <i data-lucide="landmark" style="width:32px; height:32px;"></i>
+        </div>
+        <h3 class="category-card-title">Wisata Sejarah</h3>
+        <p class="category-card-count mt-1">6 Cagar Budaya & Monumen</p>
+      </a>
+
+      <a href="/src/pages/wisata.html?cat=wisata-religi" class="category-card" aria-label="Kategori Wisata Religi">
+        <div class="category-card-icon">
+          <i data-lucide="church" style="width:32px; height:32px;"></i>
+        </div>
+        <h3 class="category-card-title">Wisata Religi</h3>
+        <p class="category-card-count mt-1">7 Tempat Ibadah & Ziarah</p>
+      </a>
+
+      <a href="/src/pages/wisata.html?cat=kuliner" class="category-card" aria-label="Kategori Wisata Kuliner">
+        <div class="category-card-icon">
+          <i data-lucide="utensils" style="width:32px; height:32px;"></i>
+        </div>
+        <h3 class="category-card-title">Wisata Kuliner</h3>
+        <p class="category-card-count mt-1">14 Kuliner Legendaris</p>
+      </a>
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+  <div data-component="back-to-top"></div>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

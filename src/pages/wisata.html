@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Wisata Lengkap - JelajahMadiun</title>
+  <meta name="description" content="Daftar lengkap 34 objek wisata buatan, cagar budaya sejarah, religi, dan kuliner legendaris Kota Madiun dengan fitur pencarian dan filter cepat.">
+
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/base.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components.css">
+  <link rel="stylesheet" href="/src/css/utilities.css">
+  <link rel="stylesheet" href="/src/css/responsive.css">
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div data-component="navbar"></div>
+
+  <main class="main-content container section">
+    <div data-component="breadcrumb"></div>
+
+    <div class="section-title-wrapper">
+      <h1 class="section-title">Semua Destinasi Wisata Kota Madiun</h1>
+      <p class="section-subtitle">Temukan 34 tempat wisata menarik dan kuliner khas Madiun</p>
+    </div>
+
+    <!-- Search & Category Filters -->
+    <div class="mb-5" style="max-width: 800px; margin-left: auto; margin-right: auto;">
+      <div data-component="search" class="mb-4"></div>
+
+      <div class="d-flex justify-center gap-2 flex-wrap" id="category-pills">
+        <button class="btn btn-primary category-pill" data-category="all">Semua Destinasi</button>
+        <button class="btn btn-outline category-pill" data-category="wisata-buatan">Wisata Buatan</button>
+        <button class="btn btn-outline category-pill" data-category="wisata-sejarah">Wisata Sejarah</button>
+        <button class="btn btn-outline category-pill" data-category="wisata-religi">Wisata Religi</button>
+        <button class="btn btn-outline category-pill" data-category="kuliner">Wisata Kuliner</button>
+      </div>
+    </div>
+
+    <!-- Results Info Bar -->
+    <div class="d-flex justify-between align-center mb-4" style="border-bottom: 1px solid var(--border); padding-bottom: 0.75rem;">
+      <span style="font-weight: 600; color: var(--text-muted);" id="result-count-label">Menampilkan semua destinasi</span>
+    </div>
+
+    <!-- Destinations Grid -->
+    <div class="grid-3" id="wisata-grid">
+      <!-- Dynamically rendered by JS -->
+    </div>
+  </main>
+
+  <div data-component="footer"></div>
+  <div data-component="back-to-top"></div>
+
+  <script type="module" src="/src/js/main.js"></script>
+  <script type="module" src="/src/js/pages/wisata.js"></script>
+</body>
+</html>
